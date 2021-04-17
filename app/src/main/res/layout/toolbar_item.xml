@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_ripple_corner_white"
+    android:paddingStart="@dimen/margin_4"
+    android:paddingTop="@dimen/margin_4"
+    android:paddingEnd="@dimen/margin_16"
+    android:paddingBottom="@dimen/margin_4"
+    android:text="@string/menu_item_create"
+    android:textAllCaps="true"
+    android:textColor="@color/custom_purpur"
+    android:textSize="15sp"
+    android:textStyle="bold" />

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">HeadsHandsDemo</string>
+    <string name="toolbar_title_auth">Авторизация</string>
+    <string name="hint_email">Электронная почта</string>
+    <string name="nit_password">Пароль</string>
+    <string name="button_login">Войти</string>
+    <string name="menu_item_create">Создать</string>
+    <string name="error_toast">Произошла ошибка</string>
+    <string name="password_tooltip">Пароль - минимум 6 символов, должен обязательно содержать минимум 1 строчную букву, 1 заглавную, и 1 цифру</string>
+</resources>

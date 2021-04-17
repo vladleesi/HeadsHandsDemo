@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tv_tooltip_text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_corner_white"
+    android:gravity="start"
+    android:padding="@dimen/margin_16"
+    android:textColor="@color/black"
+    android:textSize="12sp"
+    tools:text="Налоговая инспекция сравнивает цену продажи с кадастровой стоимостью. Если цена продажи меньше, чем кадастровая стоимость*0,7, то стоимость квартиры для расчета налога принимается как кадастровая*0,7. Так налоговая инспекция борется с искусственным занижением налоговой базы." />
