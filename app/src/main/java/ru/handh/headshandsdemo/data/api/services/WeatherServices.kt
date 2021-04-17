@@ -4,7 +4,7 @@ import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 import ru.handh.headshandsdemo.data.api.ApiConfig
-import ru.handh.headshandsdemo.data.model.WeatherApi
+import ru.handh.headshandsdemo.data.models.WeatherApi
 
 interface WeatherServices {
 

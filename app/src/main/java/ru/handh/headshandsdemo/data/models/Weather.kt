@@ -1,4 +1,4 @@
-package ru.handh.headshandsdemo.data.model
+package ru.handh.headshandsdemo.data.models
 
 import com.google.gson.annotations.SerializedName
 

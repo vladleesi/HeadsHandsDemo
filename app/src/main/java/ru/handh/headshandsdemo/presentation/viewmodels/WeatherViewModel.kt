@@ -1,9 +1,8 @@
 package ru.handh.headshandsdemo.presentation.viewmodels
 
 import androidx.lifecycle.LiveData
-import io.reactivex.rxjava3.core.Single
-import ru.handh.headshandsdemo.domain.interactor.WeatherInteractor
-import ru.handh.headshandsdemo.domain.model.WeatherDomain
+import ru.handh.headshandsdemo.domain.interactors.WeatherInteractor
+import ru.handh.headshandsdemo.domain.models.WeatherDomain
 
 class WeatherViewModel(private val weatherInteractor: WeatherInteractor): BaseViewModel() {
 

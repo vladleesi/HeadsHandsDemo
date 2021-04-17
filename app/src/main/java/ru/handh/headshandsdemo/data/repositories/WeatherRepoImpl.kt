@@ -1,12 +1,12 @@
-package ru.handh.headshandsdemo.data.repo
+package ru.handh.headshandsdemo.data.repositories
 
 import android.util.Log
 import io.reactivex.rxjava3.core.Single
 import ru.handh.headshandsdemo.data.api.ApiConfig
 import ru.handh.headshandsdemo.data.api.CommonApi
-import ru.handh.headshandsdemo.data.converter.WeatherConverter
-import ru.handh.headshandsdemo.domain.WeatherRepo
-import ru.handh.headshandsdemo.domain.model.WeatherDomain
+import ru.handh.headshandsdemo.data.converters.WeatherConverter
+import ru.handh.headshandsdemo.domain.repositories.WeatherRepo
+import ru.handh.headshandsdemo.domain.models.WeatherDomain
 
 class WeatherRepoImpl : WeatherRepo {
 

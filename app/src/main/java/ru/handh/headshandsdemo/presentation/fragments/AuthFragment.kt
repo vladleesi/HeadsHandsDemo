@@ -1,21 +1,17 @@
 package ru.handh.headshandsdemo.presentation.fragments
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
-import android.view.View.OnTouchListener
-import android.widget.PopupWindow
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import ru.handh.headshandsdemo.R
-import ru.handh.headshandsdemo.data.repo.WeatherRepoImpl
+import ru.handh.headshandsdemo.data.repositories.WeatherRepoImpl
 import ru.handh.headshandsdemo.databinding.FragmentAuthBinding
-import ru.handh.headshandsdemo.domain.interactor.WeatherInteractor
-import ru.handh.headshandsdemo.domain.model.WeatherDomain
+import ru.handh.headshandsdemo.domain.interactors.WeatherInteractor
+import ru.handh.headshandsdemo.domain.models.WeatherDomain
 import ru.handh.headshandsdemo.presentation.hideKeyboard
 import ru.handh.headshandsdemo.presentation.onTouchDrawableEnd
 import ru.handh.headshandsdemo.presentation.setSupportActionBar

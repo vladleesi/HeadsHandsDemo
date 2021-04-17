@@ -1,7 +1,7 @@
-package ru.handh.headshandsdemo.domain
+package ru.handh.headshandsdemo.domain.repositories
 
 import io.reactivex.rxjava3.core.Single
-import ru.handh.headshandsdemo.domain.model.WeatherDomain
+import ru.handh.headshandsdemo.domain.models.WeatherDomain
 
 interface WeatherRepo {
 

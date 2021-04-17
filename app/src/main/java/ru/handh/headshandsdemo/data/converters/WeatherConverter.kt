@@ -1,7 +1,7 @@
-package ru.handh.headshandsdemo.data.converter
+package ru.handh.headshandsdemo.data.converters
 
-import ru.handh.headshandsdemo.data.model.*
-import ru.handh.headshandsdemo.domain.model.WeatherDomain
+import ru.handh.headshandsdemo.data.models.*
+import ru.handh.headshandsdemo.domain.models.WeatherDomain
 
 object WeatherConverter {
 

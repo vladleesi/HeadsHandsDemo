@@ -1,8 +1,8 @@
-package ru.handh.headshandsdemo.domain.interactor
+package ru.handh.headshandsdemo.domain.interactors
 
 import io.reactivex.rxjava3.core.Single
-import ru.handh.headshandsdemo.domain.WeatherRepo
-import ru.handh.headshandsdemo.domain.model.WeatherDomain
+import ru.handh.headshandsdemo.domain.repositories.WeatherRepo
+import ru.handh.headshandsdemo.domain.models.WeatherDomain
 
 class WeatherInteractor(private val weatherRepo: WeatherRepo) {
 
