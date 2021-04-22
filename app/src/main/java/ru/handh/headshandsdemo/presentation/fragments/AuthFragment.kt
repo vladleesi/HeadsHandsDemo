@@ -2,33 +2,20 @@ package ru.handh.headshandsdemo.presentation.fragments
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.textfield.TextInputLayout
 import ru.handh.headshandsdemo.R
-import ru.handh.headshandsdemo.data.repositories.WeatherRepoImpl
 import ru.handh.headshandsdemo.databinding.FragmentAuthBinding
-import ru.handh.headshandsdemo.domain.interactors.WeatherInteractor
-import ru.handh.headshandsdemo.domain.models.WeatherDomain
-import ru.handh.headshandsdemo.presentation.hideKeyboard
-import ru.handh.headshandsdemo.presentation.onTouchDrawableEnd
-import ru.handh.headshandsdemo.presentation.setSupportActionBar
-import ru.handh.headshandsdemo.presentation.showTooltip
+import ru.handh.headshandsdemo.presentation.MainActivity
 import ru.handh.headshandsdemo.presentation.utils.InputMask
+import ru.handh.headshandsdemo.presentation.utils.extensions.*
 import ru.handh.headshandsdemo.presentation.viewmodels.WeatherViewModel
-import ru.handh.headshandsdemo.presentation.viewmodels.getViewModel
 
 
 class AuthFragment : Fragment() {
 
     private lateinit var binding: FragmentAuthBinding
 
-    // TODO: Делегировать на DI или Service Locator
-    private val weatherRepo by lazy { WeatherRepoImpl() }
-    private val weatherInteractor by lazy { WeatherInteractor(weatherRepo) }
-    private val weatherViewModel by lazy { getViewModel { WeatherViewModel(weatherInteractor) } }
+    private val weatherViewModel by lazy { (activity as MainActivity).koin.get<WeatherViewModel>() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -66,33 +53,15 @@ class AuthFragment : Fragment() {
         }
     }
 
-    private fun checkInput(
-        textInputLayout: TextInputLayout,
-        condition: Boolean,
-        errorText: String
-    ): Boolean {
-        textInputLayout.editText?.addTextChangedListener {
-            textInputLayout.error = null
-        }
-
-        if (!condition) {
-            textInputLayout.error = errorText
-            return !condition
-        }
-        return condition
-    }
-
     private fun checkEmail(): Boolean {
-        return checkInput(
-            binding.tilEmail,
+        return binding.tilEmail.checkInput(
             InputMask.isEmailValid(binding.tilEmail.editText?.text.toString()),
             "Указан некорректный email"
         )
     }
 
     private fun checkPassword(): Boolean {
-        return checkInput(
-            binding.tilPassword,
+        return binding.tilPassword.checkInput(
             InputMask.isPasswordValid(binding.tilPassword.editText?.text.toString()),
             "Указан некорректный пароль"
         )
@@ -100,27 +69,15 @@ class AuthFragment : Fragment() {
 
     private fun loadWeather() {
         val city = "Moscow"
-        weatherViewModel.getWeather(city).observe(viewLifecycleOwner, { weatherDomain ->
+        weatherViewModel.getWeather(city).observe(viewLifecycleOwner, { weather ->
             binding.root.hideKeyboard()
 
-            if (weatherDomain == null) {
+            if (weather == null) {
                 showErrorToast()
             } else {
-                showWeather(weatherDomain)
+                binding.root.showSnackbar("${weather.city} ${weather.temp}")
             }
         })
-    }
-
-    private fun showErrorToast() {
-        Toast.makeText(context, getString(R.string.error_toast), Toast.LENGTH_LONG).show()
-    }
-
-    private fun showWeather(weatherDomain: WeatherDomain) {
-        Snackbar.make(
-            binding.root,
-            "${weatherDomain.city} ${weatherDomain.temp}",
-            Snackbar.LENGTH_LONG
-        ).show()
     }
 
     companion object {
