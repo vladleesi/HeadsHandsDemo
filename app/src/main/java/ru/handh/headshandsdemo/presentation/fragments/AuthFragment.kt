@@ -5,7 +5,6 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import ru.handh.headshandsdemo.R
 import ru.handh.headshandsdemo.databinding.FragmentAuthBinding
-import ru.handh.headshandsdemo.presentation.MainActivity
 import ru.handh.headshandsdemo.presentation.utils.InputMask
 import ru.handh.headshandsdemo.presentation.utils.extensions.*
 import ru.handh.headshandsdemo.presentation.viewmodels.WeatherViewModel
@@ -15,7 +14,7 @@ class AuthFragment : Fragment() {
 
     private lateinit var binding: FragmentAuthBinding
 
-    private val weatherViewModel by lazy { (activity as MainActivity).koin.get<WeatherViewModel>() }
+    private val weatherViewModel by lazy { getParentActivity().koin.get<WeatherViewModel>() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,8 +43,6 @@ class AuthFragment : Fragment() {
         inflater.inflate(R.menu.menu_toolbar_auth, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
-
-    // TODO: Доп логику убрать в Extensions или ViewModel
 
     private fun checkInputs(successCallback: () -> Unit) {
         if (checkEmail() && checkPassword()) {

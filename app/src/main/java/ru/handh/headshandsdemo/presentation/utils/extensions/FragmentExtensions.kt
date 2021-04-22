@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import ru.handh.headshandsdemo.R
+import ru.handh.headshandsdemo.presentation.MainActivity
 
 
 fun Fragment.setSupportActionBar(toolbar: Toolbar, title: CharSequence) {
@@ -18,3 +19,5 @@ fun Fragment.setSupportActionBar(toolbar: Toolbar, title: CharSequence) {
 fun Fragment.showErrorToast() {
     Toast.makeText(context, getString(R.string.error_toast), Toast.LENGTH_LONG).show()
 }
+
+fun Fragment.getParentActivity() = (activity as MainActivity)
