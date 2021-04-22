@@ -15,6 +15,7 @@ open class BaseViewModel : ViewModel() {
         super.onCleared()
     }
 
+    // TODO: Если работать только с одни типом, например Single, то лучше иметь глобальную LiveData
     fun <T> invoke(single: Single<T?>, throwableValue: T?): LiveData<T?> {
         val liveData = MutableLiveData<T?>()
         compositeDisposable.add(single.subscribe({

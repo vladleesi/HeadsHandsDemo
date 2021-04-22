@@ -25,6 +25,7 @@ class AuthFragment : Fragment() {
 
     private lateinit var binding: FragmentAuthBinding
 
+    // TODO: Делегировать на DI или Service Locator
     private val weatherRepo by lazy { WeatherRepoImpl() }
     private val weatherInteractor by lazy { WeatherInteractor(weatherRepo) }
     private val weatherViewModel by lazy { getViewModel { WeatherViewModel(weatherInteractor) } }
@@ -56,6 +57,8 @@ class AuthFragment : Fragment() {
         inflater.inflate(R.menu.menu_toolbar_auth, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
+
+    // TODO: Доп логику убрать в Extensions или ViewModel
 
     private fun checkInputs(successCallback: () -> Unit) {
         if (checkEmail() && checkPassword()) {

@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+// TODO: Убирать Extensions в тематические файлы
 fun Fragment.setSupportActionBar(toolbar: Toolbar, title: CharSequence) {
     val parentActivity = (activity as? AppCompatActivity)
     parentActivity?.setSupportActionBar(toolbar)
